@@ -36,7 +36,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class        instance       title         tags mask     isfloating   monitor */
-	{"pulseaudio",  "pulseaudio",  "pulseaudio", 0,            1,           -1 },
+	{"st-256color", "st-256color", "pulseaudio", 0,            1,           -1 },
 };
 
 /* layout(s) */
