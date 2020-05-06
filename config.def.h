@@ -36,6 +36,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class        instance       title         tags mask     iscentered   isfloating   monitor */
+	{"st-256color", "st-256color", "wcalc",      0,            1,           1,           -1 },
 	{"st-256color", "st-256color", "pulsemixer", 0,            1,           1,           -1 },
 };
 
@@ -66,11 +67,15 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-b", "-y", "4", "-w", "2556", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *wcalccmd[] = {"wcalc", NULL };
+static const char *firefoxcmd[] ={ "firefox", NULL };
 static const char *pulsemixercmd[] = { "st", "pulsemixer", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          {.v = wcalccmd } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = firefoxcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = pulsemixercmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
